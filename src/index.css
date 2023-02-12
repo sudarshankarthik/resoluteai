@@ -1,13 +1,226 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: fit-content;
+}
+
+.header-logo {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41.6px;
+  color: #584A4ABD;
+  margin: 18px 67px;
+}
+
+.header-userid {
+  margin: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 200px;
+  height: 48px;
+}
+
+.header-userid-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18.2px;
+}
+
+.Body {
+  margin-top: 50px;
+  display: flex;
+  height: fit-content;
+}
+
+.body-nav {
+  width: 245px;
+}
+
+.Nav {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.nav-element {
+  width: 240px;
+  height: 48px;
+  left: 8px;
+  padding: 12px 24px 12px 24px;
+  gap: 16px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 8px;
+}
+
+.nav-element-active {
+  margin-left: 8px;
+  width: 240px;
+  height: 48px;
+  left: 8px;
+  padding: 12px 24px 12px 24px;
+  gap: 16px;
+  background-color: #F33823;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+}
+
+.ManageStudent {
+  flex-grow: 1;
+}
+
+.AddStudent {
+  flex-grow: 1;
+}
+
+.manageHeader {
+  padding: 0px 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+}
+
+.manageHeader-head {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+
+.manageHeader-date {
+  font-weight: 400;
+  font-size: 14px;
+  text-align: right;
+}
+
+.manageTable {
+  margin: 13px;
+  padding: 13px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout:fixed;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: none;
+}
+
+th {
+  background: #F33823;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
+  padding: 16px;
+
+}
+
+td {
+  text-align: left;
+  padding: 16px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+td img {
+  width: 25px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.addStudent-form {
+  width: 1000px;
+  margin: 16px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 16px;
+}
+
+input[type="text"], input[type="number"] {
+  width: 400px;
+  height: 48px;
+  border-radius: 5px;
+  padding: 15px 16px;
+  border: none;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus{
+  border: none;
+  outline: 0.5px solid black;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px;
+  border-radius: 5px;
+  padding: 15px 16px;
+  background-color: white;
+  box-shadow: none;
+  border:none;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+
+select option:checked,
+select option:hover {
+  box-shadow: 0 0 10px 100px #000 inset;
+}
+
+.addStudent-class {
+  display: flex;
+  width: 400px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.addStudent-class-element {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.addStudent-class-element-active {
+  background-color: #F33823;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: white;
+}
+
+.addStudent-form-lable {
+  padding: 10px 0;
+  position: relative;
 }
