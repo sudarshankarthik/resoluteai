@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import db from './firebaseconfig';
+import { addDoc, collection } from 'firebase/firestore';
 
 function AddStudent() {
       const currentdate = new Date();
@@ -20,6 +22,23 @@ function AddStudent() {
     const [city, setCity] = useState("")
     const [pinCode, setPinCode] = useState(0)
 
+    const studentsCollection = collection(db,"students")
+    
+        const addUsers = async() => {
+          await addDoc(studentsCollection,{
+              "firstName": firstName,
+              "middleName": middleName,
+              "lastName": lastName,
+              "sClass": sClass,
+              "div": div,
+              "pNo": pNo,
+              "addla": addla,
+              "addlb": addlb,
+              "landmark": landmark,
+              "city": city,
+              "pinCode": pinCode
+          })
+        }
     
   return (
     <div className='AddStudent'>
@@ -42,10 +61,10 @@ function AddStudent() {
           <option value="VII">VIII</option>
           </select>
           <div className='addStudent-class'>
-            <div className={div === 1 ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv(1)}>A</button></div>
-            <div className={div === 2 ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv(2)}>B</button></div>
-            <div className={div === 3 ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv(3)}>C</button></div>
-            <div className={div === 4 ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv(4)}>D</button></div>
+            <div className={div === "A" ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv("A")}>A</button></div>
+            <div className={div === "B" ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv("B")}>B</button></div>
+            <div className={div === "C" ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv("C")}>C</button></div>
+            <div className={div === "D" ? 'addStudent-class-element-active' : 'addStudent-class-element'}> <button onClick={() => setDiv("D")}>D</button></div>
           </div>
           <input type="number" placeholder='Phone Number ' onChange={(e) => setPNo(e.target.value)} />
           <input type="text" placeholder='Address Line A ' onChange={(e) => setAddla(e.target.value)} />
@@ -54,6 +73,8 @@ function AddStudent() {
           <input type="text" placeholder='City ' onChange={(e) => setCity(e.target.value)} />
           <input type="number" placeholder='Pin Code ' onChange={(e) => setPinCode(e.target.value)} />
         </div>
+
+        <button className='addStudent-form-button' onClick={addUsers}>Add Student</button>
     </div>
   )
 }

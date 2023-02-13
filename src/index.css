@@ -224,3 +224,11 @@ select option:hover {
   padding: 10px 0;
   position: relative;
 }
+
+.addStudent-form-button {
+  background-color: #F33823;
+  color: white;
+  border-radius: 5px;
+  width: 200px;
+  height: 48px;
+}

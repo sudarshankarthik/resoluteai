@@ -17,7 +17,7 @@ function ManageStudent() {
                 + currentdate.getMinutes()
 
     const [users, setUsers] = useState([])
-    const usersCollection = collection(db,"users")
+    const usersCollection = collection(db,"students")
 
 
     useEffect(() => {
@@ -37,9 +37,9 @@ function ManageStudent() {
     const students = users.map((student) => {
       return (
         <tr key={student.id}>
-          <td>{student.City}</td>
-          <td>{student.Class}</td>
-          <td>{student.Division}</td>
+          <td>{student.firstName + " " + student.middleName}</td>
+          <td>{student.sClass + " " + student.div}</td>
+          <td>{student.pNo}</td>
           <td>
             <img src={view} alt='view' />
             <img src={write} alt='edit' />
@@ -67,12 +67,6 @@ function ManageStudent() {
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>losdfds</td>
-              <td>losdfds</td>
-              <td>losdfds</td>
-              <td>losdfds</td>
-            </tr>
             {students}
             </tbody>
           </table>
